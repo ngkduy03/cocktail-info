@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <title>Cocktail Information</title>
+  <link href="css.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="topnav">
+    <div class="autocomplete">
+      <input id="userInput" type="text" placeholder="Cocktail Name">
+    </div>
+    <button id="searchBtn" class="button">Search</button>
+    <img class="logo-image" src="logobg.png"></img>
+    <h1 class="logo">CocktailPedia</h1>
+  </div>
+
+  <div id = "flex-container">
+    <div class="menu-list">
+      <details>
+        <summary>
+          <label>Alphabet</label>
+        </summary>
+        <ul class="alphabet-menu"></ul>
+      </details>
+      <details>
+        <summary>
+          <label>Spirit</label>
+          <ul class="spirit-menu"></ul>
+        </summary>
+      </details>
+    </div>
+
+    <div id="wrapper">
+      <div id="container">
+        <section class="open-book">
+          <header>
+            <h1>CocktailPedia</h1>
+            <h6>Group 1</h6>
+          </header>
+          <article>
+            <div class="card polaroid">
+              <img src = "logobg.png" />
+            </div>
+            <div class="des">
+              <label><strong>Description:</strong></label>
+              <p>This is a simple website as a project for Data structures and algorithms that list all informations and recipes of classic cocktails. A cocktail is an alcoholic mixed drink. Cocktails are either a combination of spirits, or one or more spirits mixed with other ingredients such as fruit juice, flavored syrup, or cream. Cocktails vary widely across regions of the world.</p>
+            </div>
+            <div class = "spirit"></div>
+            <div class="ingre">
+              <label><strong>Ingredient:</strong></label>
+              <ul>
+                <li>Trie (Prefix tree)</li>
+                <li>LSD Radix sort</li>
+                <li>Binary search</li>
+              </ul>
+            </div>
+            <div class="instr">
+              <label><strong>Instruction:</strong></label>
+              <ul>
+                <li>Trie and LSD Radix sort used for searching and creating menu list</li>
+                <li>Binary search used for finding data</li>
+              </ul>
+            </div>
+          </article>
+          <footer>
+            <ol id="page-numbers">
+              <li>1</li>
+              <li>2</li>
+            </ol>
+          </footer>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- script -->
+  <script src="code/trie.js"></script>
+  <script src="code/func.js"></script>
+  <script src="code/cocktail.js"></script>
+  <script src="code/js.js"></script>
+</body>
+
+</html>
