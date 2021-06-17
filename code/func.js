@@ -1,16 +1,30 @@
 //radix sort
 function getMax(arr) {
     let obj = [];
-    obj.push(...arr.map(item => item.name));
-    return obj.reduce((prev, cur) => prev.length > cur.length?prev.length:cur.length, 0);
+    if(typeof arr[0] == "object") {
+        obj = arr.map(item => item.name);
+    } else {
+        obj = arr; 
+    }
+
+    return obj.reduce((prev, cur) => prev.length > cur.length?
+    prev.length:
+    cur.length, 0);
 }
 
 function getCharAtString(i, pos, arr) {
-    if(pos < 0 || pos >= arr[i]["name"].length){
+    let obj = [];
+    if(typeof arr[0] == "object") {
+        obj = arr.map(item => item.name);
+    } else {
+        obj = arr;
+    }
+
+    if(pos < 0 || pos >= obj[i].length){
         return 0;
     }
     
-    return arr[i]["name"][pos].charCodeAt(0);
+    return obj[i][pos].charCodeAt(0);
 }
 
 function countingSort(arr, pos) {

@@ -8,7 +8,7 @@
 
 body {
     font: 16px 'Arial', sans-serif;
-    background: url("bg.png");
+    background: url(img/bg.webp);
     background-size: cover;
 }
 
@@ -20,6 +20,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     max-width: 80em;
+    margin: auto;
 }
 
 #container {
@@ -30,7 +31,7 @@ body {
 
 /*** OPEN BOOK ***/
 .open-book {
-    background: #fff;
+    background: url(img/paper_bg.jpg);
     box-shadow: rgba(0,0,0,0.5) 0 1em 3em;
     padding: 2em;
 }
@@ -78,7 +79,7 @@ body {
 
 
 /*** MEDIA QUERIES ***/
-@media only screen and ( min-width: 50em ) {
+@media only screen and (min-width: 50em ) {
 
     .open-book {
         margin: 1em;
@@ -86,7 +87,7 @@ body {
     }
 
     .open-book:before {
-        background-color: #8B4513;
+        background: url(img/book_cover_bg.jpg);
         border-radius: 0.25em;
         bottom: -1em;
         content: '';
@@ -121,7 +122,7 @@ body {
     .open-book header:after,
     .open-book footer:before,
     .open-book footer:after {
-        background: #fff;
+        background: url(img/paper_bg.jpg);
         border-radius: 25%;
         content: '';
         height: 2em;
@@ -204,11 +205,6 @@ body {
         font-size: 3em;
     }
 
-    .open-book .chapter-title:before,
-    .open-book .chapter-title:after {
-        height: 0.125em;
-    }
-
     /* Body Copy */
   .open-book article * {
     margin: 0 auto;
@@ -274,7 +270,7 @@ button {
   font-size: 20px;
   color: #fff;
   width: 300px;
-  height: 700px;
+  height: 800px;
   padding: 20px 30px;
   border-radius: 20px;
   overflow-y: auto;
@@ -287,17 +283,17 @@ button {
   padding-left: 20px;
 }
 
-.alphabet-menu {
+.alphabet-menu, .spirit-menu {
   list-style: none;
   overflow-y: auto;
 }
 
-.alphabet-menu ul {
+.alphabet-menu ul, .spirit-menu ul {
   margin: 0;
   padding-left: 50px;
 }
 
-.alphabet-list {
+.list {
   list-style: outside;
   font-size: .95em;
 }

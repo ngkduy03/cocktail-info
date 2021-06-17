@@ -8,30 +8,49 @@ for (let i = 0; i < cocktailArr.length; i++) {
   trie.insert(cocktailArr[i].name);
 }
 
-//create a menu list
+//create an alphabet menu list
 let alphabetMenu = document.getElementsByClassName("alphabet-menu")[0];
 for (let i = 65; i <= 90 ; i++) {
-  let liElem = document.createElement("li");
   let char = String.fromCharCode(i);
-  liElem.innerHTML = "<details><summary>" + char + "</summary</details>";
-  let searchItem = trie.find(char);
+  let searchValue = trie.find(char);
+  createMenuList(alphabetMenu, char, searchValue);
+}
+
+//create a spirit menu list
+let spiritMenu = document.getElementsByClassName("spirit-menu")[0];
+let spirit_set = [...new Set(cocktailArr.map(cocktail => cocktail.spirit))];
+radixSort(spirit_set);
+spirit_set.forEach(spirit => {
+  let searchValue = cocktailArr.filter(cocktail => cocktail.spirit == spirit).map(cocktail => cocktail.name);
+  createMenuList(spiritMenu, spirit, searchValue);
+});
+
+function createMenuList(menu, value, searchValue) {
+  let liElem = document.createElement("li");
+  liElem.innerHTML = "<details><summary>" + value + "</summary</details>";
+  let searchItem = searchValue;
 
   let ulElem = document.createElement("ul");
-  ulElem.className = "alphabet-list";
+  ulElem.className = "list";
   ulElem.style.display = "none";
 
   for(let j = 0; j < searchItem.length; j++) {
     ulElem.innerHTML += "<li><a>" + searchItem[j] + "</a></li>";
   }
 
-  // add event listener for each item in menu list
+  // add click event for each item in menu list
   for(let j = 0; j < searchItem.length; j++) {
     ulElem.childNodes[j].firstChild.addEventListener("click", () => {
+      if(ulElem.childNodes[j].firstChild.style.color = "blue") {
+        ulElem.childNodes[j].firstChild.style.color = "white";
+      } else {
+        ulElem.childNodes[j].firstChild.style.color = "blue";
+      }
+
       find(cocktailArr, searchItem[j]);
     });
   }
 
-  
   liElem.appendChild(ulElem);
   liElem.firstChild.addEventListener("click", () => {
     if(ulElem.style.display == "none") {
@@ -40,9 +59,8 @@ for (let i = 65; i <= 90 ; i++) {
       ulElem.style.display = "none";
     }
   });
-  alphabetMenu.appendChild(liElem);
+  menu.appendChild(liElem);
 }
-
 
 //autocomplete box
 function autocomplete(inp) {
@@ -152,6 +170,7 @@ function find(arr, val) {
   let ingre = document.getElementsByClassName("ingre");
   let instr = document.getElementsByClassName("instr");
   let spirit = document.getElementsByClassName("spirit");
+
   // Search data
   let info = arr[binarySearch(arr, val)];
 
@@ -162,7 +181,7 @@ function find(arr, val) {
     des[0].innerHTML += "<p>"+ info.des +"</p>";
     spirit[0].innerHTML = "<label><strong>Spirit: </strong></label>";
     spirit[0].innerHTML += "<label>" + info.spirit + "</label>";
-    ingre[0].innerHTML = "<label><strong>Ingerdient:</strong></label>"
+    ingre[0].innerHTML = "<label><strong>Ingredient:</strong></label>"
     ingre[0].innerHTML += "<p>"+ info.ingre +"</p>";
     instr[0].innerHTML = "<label><strong>Instruction:</strong></label>";
     instr[0].innerHTML += "<p>"+ info.instr +"</p>";
